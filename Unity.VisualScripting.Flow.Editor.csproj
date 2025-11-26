@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{C0E9EE8A-3263-0FA0-636E-3C51BA792B3F}</ProjectGuid>
+    <ProjectGuid>{DD8DB33D-7E69-A002-DA21-D9F1A1338E2E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.VisualScripting.Flow.Editor</AssemblyName>
@@ -900,27 +900,27 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.VisualScripting.Core.csproj">
-      <Project>{ADB96082-8CB4-0873-4180-02B7FEA763ED}</Project>
+      <Project>{3FF6D766-6D24-A003-7D85-F741D53F5EA2}</Project>
       <Name>Unity.VisualScripting.Core</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Editor.csproj">
-      <Project>{2752F3A9-0049-43BE-8151-905DF560EDED}</Project>
+      <Project>{A0A7F994-79CB-698A-5031-C23EED4B9B7D}</Project>
       <Name>Unity.VisualScripting.Core.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
-      <Project>{673F9E0A-5DBB-6C69-8AC9-470CC1B5FA4C}</Project>
+      <Project>{AA568CB9-1F57-D57D-35FC-3D4DBAB3F2EF}</Project>
       <Name>Unity.VisualScripting.Flow</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InputSystem.csproj">
-      <Project>{CE778852-03A4-73A5-6924-A5E4DD37C52A}</Project>
+      <Project>{C2B8FE27-7FE3-9E76-9706-0A0F6E831F87}</Project>
       <Name>Unity.InputSystem</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{3E7B6A25-910D-961D-6470-EBA9C0C24BBE}</Project>
+      <Project>{A22E42F5-022D-1ADE-971E-58B14FEDC8C1}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{5738E39B-692B-287B-730A-9C0C66784213}</Project>
+      <Project>{FEF8BC2E-2745-DF69-138B-14A901EDB0CF}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
