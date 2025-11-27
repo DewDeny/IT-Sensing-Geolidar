@@ -16,6 +16,7 @@ public class ViewControl : MonoBehaviour
     void Start()
     {
         cameraInitPos = transform.localPosition;
+        cameraInitRot = transform.localEulerAngles;
         cameraObj = transform.GetChild(0).gameObject;
         cameraDistance = cameraObj.transform.localPosition.z;
     }
@@ -30,7 +31,7 @@ public class ViewControl : MonoBehaviour
             list = new List<RaycastResult>();
             EventSystem.current.RaycastAll(pointerData, list);
 
-            if (list.Count == 0)
+            if (list.Count == 0 || list[0].sortingLayer != 5)
                 moveWorld = true;
             else
                 moveWorld = false;
