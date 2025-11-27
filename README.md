@@ -1,2 +1,2 @@
-# IT Sensing
-alpha bumi mandiri,
+# IT Sensing GeoLiDAR
+alpha bumi mandiri - techno group
