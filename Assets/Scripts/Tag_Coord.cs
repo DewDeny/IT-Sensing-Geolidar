@@ -23,7 +23,7 @@ public class Tag_Coord : MonoBehaviour
         if (!placed)
         {
             pointWorldCoor = pointPlaced.GetComponent<Tag_Point>().pointWorldCoord;
-            txt.text = new string("X00," + pointWorldCoor.x.ToString("f2") + " / X00," + pointWorldCoor.z.ToString("f2") + " / " + pointWorldCoor.y.ToString("f2"));
+            txt.text = new string(pointWorldCoor.x.ToString("f2") + " / " + pointWorldCoor.z.ToString("f2") + " / " + pointWorldCoor.y.ToString("f2"));
         }
     }
 }

@@ -1,18 +1,26 @@
 using System;
+using System.Security.Principal;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
 public class Tool_Point : MonoBehaviour
 {
     //Base functions
-    public GameObject pointPref, coordPref, distancePref, anglePref, linePref, lineGreenPref;
-    public GameObject pointsGroup, tagsGroup;
+    public GameObject pointPref, coordPref, distancePref, anglePref, linePref, lineGreenPref, circlePref;
+    public GameObject pointsGroup, tagsGroup, nonCanvasGroup;
     GameObject pointBeingDragged, tagBeingDragged, lineBeingDragged;
     public GameObject[] temp_PointStorage, temp_TagStorage;
     int tool;
     Vector3 hitPos;
     bool startPointing;
     int pointAmount;
+
+    //----------------------------------------------
+    //Notes & Links
+    //https://github.com/CristobalBL/pointcloud-unity-example githubpoint cloud thingy??
+    //https://www.lidarusa.com/sample-data.html USA lidar data & viewer
+    //https://discussions.unity.com/t/import-point-cloud-to-unity/736241/ Putting e57(?) file into array for Particle usage(?)
+    //----------------------------------------------
 
     // Start is called blablabla
     void Start()
@@ -29,16 +37,6 @@ public class Tool_Point : MonoBehaviour
         {
             hitPos = hit.point;
             pointBeingDragged.GetComponent<Tag_Point>().pointWorldCoord = hitPos;
-
-            switch (tool)
-            {
-                case 4:
-                    if (pointAmount == 1)
-                    {
-
-                    }
-                    break;
-            }
         }
 
         if (Input.GetMouseButtonDown(0) && startPointing) //Placing down the point marker
@@ -101,7 +99,7 @@ public class Tool_Point : MonoBehaviour
 
         switch (tool)
         {
-            case 1://Angle Measurement
+            case 1: //Angle Measurement
 
                 if (pointAmount < 3)
                 {
@@ -134,13 +132,13 @@ public class Tool_Point : MonoBehaviour
                 }
                 break;
 
-            case 2://Point measurement
+            case 2: //Point measurement
                 pointBeingDragged = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform);
                 tagBeingDragged = Instantiate(coordPref, hidePos, Quaternion.identity, tagsGroup.transform);
                 tagBeingDragged.GetComponent<Tag_Coord>().pointPlaced = pointBeingDragged;
                 break;
 
-            case 3://Distance measurement
+            case 3: //Distance measurement
                 if (pointAmount == 1)
                 {
                     lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, pointsGroup.transform);
@@ -159,7 +157,7 @@ public class Tool_Point : MonoBehaviour
                 }
                 break;
 
-            case 4:
+            case 4://Height
                 if (pointAmount == 1)
                 {
                     lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, pointsGroup.transform);
@@ -193,6 +191,78 @@ public class Tool_Point : MonoBehaviour
                     tagBeingDragged.GetComponent<Tag_Distance>().pointsPlaced[1] = temp_PointStorage[1];
                 }
                 break;
+
+            case 5: //Circle
+                if (pointAmount == 1)
+                {
+                    pointBeingDragged = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform); //center of circle
+
+                    lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, tagsGroup.transform); //radius line
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[0] = temp_PointStorage[1];
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[1] = pointBeingDragged;
+
+                    tagBeingDragged = Instantiate(distancePref, hidePos, Quaternion.identity, tagsGroup.transform); //distance
+                    tagBeingDragged.GetComponent<Tag_Distance>().pointsPlaced[0] = temp_PointStorage[1];
+                    tagBeingDragged.GetComponent<Tag_Distance>().pointsPlaced[1] = pointBeingDragged;
+
+                    lineBeingDragged = Instantiate(circlePref, hidePos, Quaternion.identity, nonCanvasGroup.transform); //the circle
+                    lineBeingDragged.GetComponent<Tag_Circle>().pointsPlaced[0] = temp_PointStorage[0];
+                    lineBeingDragged.GetComponent<Tag_Circle>().pointsPlaced[1] = temp_PointStorage[1];
+
+                    pointBeingDragged.GetComponent<Tag_Point>().BecomeFollower(lineBeingDragged);
+                }
+
+                pointBeingDragged = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform);
+                int temp_SlotNumCircle = 3 - pointAmount;
+                temp_PointStorage[temp_SlotNumCircle] = pointBeingDragged;
+
+                if (pointAmount == 1)
+                {
+                    lineBeingDragged.GetComponent<Tag_Circle>().pointsPlaced[2] = temp_PointStorage[2];
+                }
+                break;
+
+            case 6: //Azimuth
+                pointBeingDragged = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform);
+                int temp_SlotNumAzim = 2 - pointAmount;
+                temp_PointStorage[temp_SlotNumAzim] = pointBeingDragged;
+
+                if (pointAmount == 1)
+                {
+                    //line between 0 and 1
+                    lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, pointsGroup.transform);
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[0] = temp_PointStorage[0];
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[1] = temp_PointStorage[1];
+
+                    //Shadow point of 1
+                    GameObject shadowPoint = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform);
+                    shadowPoint.GetComponent<Tag_Point>().BecomeShadow(temp_PointStorage[0], temp_PointStorage[1]);
+
+                    //line, between 0 and Shadow
+                    lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, pointsGroup.transform);
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[0] = temp_PointStorage[0];
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[1] = shadowPoint;
+
+                    //Circle line
+                    lineBeingDragged = Instantiate(circlePref, hidePos, Quaternion.identity, nonCanvasGroup.transform);
+                    lineBeingDragged.GetComponent<Tag_Circle>().BecomePerimeter(temp_PointStorage[0], temp_PointStorage[1]);
+
+                    //North point
+                    GameObject northPoint = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform);
+                    northPoint.GetComponent<Tag_Point>().BecomeNorth(temp_PointStorage[0], temp_PointStorage[1]);
+
+                    //line, between 0 and North
+                    lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, pointsGroup.transform);
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[0] = temp_PointStorage[0];
+                    lineBeingDragged.GetComponent<Tag_Line>().pointsPlaced[1] = northPoint;
+
+                    //angle tag between North and 1
+                    tagBeingDragged = Instantiate(anglePref, hidePos, Quaternion.identity, tagsGroup.transform);
+                    tagBeingDragged.GetComponent<Tag_Angle>().pointsPlaced[0] = northPoint;
+                    tagBeingDragged.GetComponent<Tag_Angle>().pointsPlaced[1] = temp_PointStorage[0];
+                    tagBeingDragged.GetComponent<Tag_Angle>().pointsPlaced[2] = shadowPoint;
+                }
+                break;
         }
         startPointing = true;
     }
@@ -222,6 +292,24 @@ public class Tool_Point : MonoBehaviour
         StartPointing(4);
     }
 
+    public void Measure_Circle()
+    {
+        pointAmount = 3;
+        StartPointing(5);
+    }
+
+    public void Measure_Azimuth()
+    {
+        pointAmount = 2;
+        StartPointing(6);
+    }
+
+    //area
+    //cube
+    //sphere
+    //surface/projection
+    //annotation
+
     public void Measure_Remove_All()
     {
         foreach (Transform offsprings in pointsGroup.transform)
@@ -230,6 +318,11 @@ public class Tool_Point : MonoBehaviour
         }
 
         foreach (Transform offsprings in tagsGroup.transform)
+        {
+            Destroy(offsprings.gameObject);
+        }
+
+        foreach (Transform offsprings in nonCanvasGroup.transform)
         {
             Destroy(offsprings.gameObject);
         }

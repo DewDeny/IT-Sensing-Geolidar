@@ -3,15 +3,42 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 public class ViewControl : MonoBehaviour
 {
+    ViewController moveController;
+    Vector2 movement;
+
     Vector2 mouseInitPos, mousePos;
     Vector3 cameraInitPos, cameraInitRot;
     GameObject cameraObj;
     float cameraDistance;
     public bool moveWorld, stickMouse;
     List<RaycastResult> list;
+
+    void Awake()
+    {
+        moveController = new ViewController();
+        moveController.Player.Move.performed += ctx =>
+        {
+            movement = ctx.ReadValue<Vector2>();
+        };
+        moveController.Player.Move.canceled += ctx =>
+        {
+            movement = Vector2.zero;
+        };
+    }
+
+    void OnEnable()
+    {
+        moveController.Enable();
+    }
+
+    void OnDisable()
+    {
+        moveController.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +52,12 @@ public class ViewControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //WASD CONTROLS
+      //  Vector3 movementCam = new Vector3(movement.x,0,movement.y);
+      //          transform.localPosition += movementCam*50 * Time.deltaTime;
+       // Debug.Log(movement);
+
+        //MOUSE CONTROLS
         if (!stickMouse)
         {
             PointerEventData pointerData = new PointerEventData(EventSystem.current);

@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/GeoLiDAR.unity
+- path: Assets/Scenes/testLASimport.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
