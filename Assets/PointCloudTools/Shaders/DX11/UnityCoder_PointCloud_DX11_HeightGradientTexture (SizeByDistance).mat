@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UnityCoder_PointCloud_DX11_HeightGradientTexture (SizeByDistance)
+  m_Shader: {fileID: 4800000, guid: 089f12690f7d1884789bf63705224cbb, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _GradientMap:
+        m_Texture: {fileID: 2800000, guid: 1d4465e6c27a3994aa4360fdfc0c5c41, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _MaxY: 77.76
+    - _MinY: 55
+    - _ScaleDistance: 23.34
+    - _Size: 0.2
+    m_Colors: []
