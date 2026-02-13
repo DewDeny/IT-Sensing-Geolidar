@@ -61,34 +61,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.2.14f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Tool_Point.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\PlyVertex.cs" />
-    <Compile Include="Assets\Scripts\unused\LasFolder\BinaryPlyLoader.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\messyahh\PLYLoader.cs" />
-    <Compile Include="Assets\Scripts\_CircleRenderer.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\TileFolderLoader.cs" />
-    <Compile Include="Assets\Scripts\Tag_Line.cs" />
-    <Compile Include="Assets\Scripts\Tag_Point.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\messyahh\TileManager.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\PlyLoadTest.cs" />
-    <Compile Include="Assets\Scripts\unused\PointCoordinateTag.cs" />
-    <Compile Include="Assets\Scripts\unused\LasFolder\PlyTest.cs" />
-    <Compile Include="Assets\Scripts\Tag_Circle.cs" />
-    <Compile Include="Assets\Scripts\Tag_Angle.cs" />
-    <Compile Include="Assets\Scripts\unused\ToolPoint.cs" />
-    <Compile Include="Assets\Scripts\CircleGraphic.cs" />
-    <Compile Include="Assets\Scripts\unused\LasFolder\LasTest.cs" />
-    <Compile Include="Assets\Scripts\AutoResize.cs" />
-    <Compile Include="Assets\Scripts\AutoMenuArrange.cs" />
-    <Compile Include="Assets\Scripts\unused\LasFolder\LasLoading.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\PointTileNeo.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\PlyLoaderNeo.cs" />
-    <Compile Include="Assets\Scripts\unused\PLY\messyahh\VoxelGrid.cs" />
     <Compile Include="Assets\Input System\ViewController.cs" />
-    <Compile Include="Assets\Scripts\Tag_Coord.cs" />
-    <Compile Include="Assets\Scripts\Tag_Distance.cs" />
-    <Compile Include="Assets\Scripts\ViewControl.cs" />
-    <Compile Include="Assets\Scripts\Tag_LineGreen.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\PointCloudConverterX64\ja\FSharp.Core.resources.dll" />
@@ -113,7 +86,6 @@
     <None Include="Assets\StreamingAssets\PointCloudConverterX64\Aardvark.Data.Durable.Codec.dll" />
     <None Include="Assets\StreamingAssets\PointCloudConverterX64\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll" />
     <None Include="Assets\StreamingAssets\PointCloudConverterX64\Microsoft.Bcl.AsyncInterfaces.dll" />
-    <None Include="Assets\Scripts\unused\PLY\PointCloudShader.shader" />
     <None Include="Assets\StreamingAssets\PointCloudConverterX64\Newtonsoft.Json.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\StreamingAssets\PointCloudConverterX64\Ply.Net.dll" />
@@ -1282,6 +1254,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ITSensing-GeoLIDAR.csproj">
+      <Project>{DCA60B5D-078C-ED0D-4965-73A2CF3A90D2}</Project>
+      <Name>ITSensing-GeoLIDAR</Name>
+    </ProjectReference>
     <ProjectReference Include="AssemblyDefinitionURP.csproj">
       <Project>{2799538F-2DE8-6382-1B0C-27C8A9072A82}</Project>
       <Name>AssemblyDefinitionURP</Name>

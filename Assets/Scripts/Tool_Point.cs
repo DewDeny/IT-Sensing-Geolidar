@@ -1,7 +1,6 @@
 using System;
 using System.Security.Principal;
 using UnityEngine;
-using UnityEngine.InputSystem.HID;
 
 public class Tool_Point : MonoBehaviour
 {
@@ -100,7 +99,6 @@ public class Tool_Point : MonoBehaviour
         switch (tool)
         {
             case 1: //Angle Measurement
-
                 if (pointAmount < 3)
                 {
                     lineBeingDragged = Instantiate(linePref, hidePos, Quaternion.identity, pointsGroup.transform);
@@ -133,6 +131,7 @@ public class Tool_Point : MonoBehaviour
                 break;
 
             case 2: //Point measurement
+                Debug.Log("clicked");
                 pointBeingDragged = Instantiate(pointPref, hidePos, Quaternion.identity, pointsGroup.transform);
                 tagBeingDragged = Instantiate(coordPref, hidePos, Quaternion.identity, tagsGroup.transform);
                 tagBeingDragged.GetComponent<Tag_Coord>().pointPlaced = pointBeingDragged;

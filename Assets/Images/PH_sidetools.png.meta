@@ -100,10 +100,10 @@ TextureImporter:
       name: PH_sidetools_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 510
-        width: 53
-        height: 56
+        x: 14
+        y: 525
+        width: 28
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,10 +122,10 @@ TextureImporter:
       name: PH_sidetools_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 454
-        width: 53
-        height: 56
+        x: 16
+        y: 470
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,10 +144,10 @@ TextureImporter:
       name: PH_sidetools_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 398
-        width: 53
-        height: 56
+        x: 16
+        y: 412
+        width: 23
+        height: 23
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +166,10 @@ TextureImporter:
       name: PH_sidetools_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 342
-        width: 53
-        height: 56
+        x: 12
+        y: 349
+        width: 34
+        height: 34
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: PH_sidetools_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 286
-        width: 53
-        height: 56
+        x: 10
+        y: 291
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: PH_sidetools_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 230
-        width: 53
-        height: 56
+        x: 10
+        y: 233
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: PH_sidetools_6
       rect:
         serializedVersion: 2
-        x: 0
-        y: 174
-        width: 53
-        height: 56
+        x: 11
+        y: 176
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: PH_sidetools_7
       rect:
         serializedVersion: 2
-        x: 0
+        x: 10
         y: 118
-        width: 53
-        height: 56
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: PH_sidetools_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 62
-        width: 53
-        height: 56
+        x: 10
+        y: 60
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +298,10 @@ TextureImporter:
       name: PH_sidetools_9
       rect:
         serializedVersion: 2
-        x: 0
-        y: 6
-        width: 53
-        height: 56
+        x: 10
+        y: 2
+        width: 36
+        height: 36
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

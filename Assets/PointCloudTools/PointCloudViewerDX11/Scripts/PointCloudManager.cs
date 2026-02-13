@@ -376,7 +376,7 @@ namespace PointCloudViewer
             }
 
             stopwatch.Stop();
-            Debug.Log("PickTimer: " + stopwatch.ElapsedMilliseconds + "ms");
+          //  Debug.Log("PickTimer: " + stopwatch.ElapsedMilliseconds + "ms");
             stopwatch.Reset();
 
             if (pointPickingThread != null && pointPickingThread.IsAlive == true) pointPickingThread.Abort();
